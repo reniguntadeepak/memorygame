@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home.js">
+</head>
+
+<body>
+    <div class="outer">
+
+    </div>
+    <button onclick="start()">start</button>
+</body>
+<script>
+    function start() {
+        // code fo inerting box in main box
+        for (let i = 1; i <= 20; i++) {
+            const square = document.createElement("div");
+            square.setAttribute("class", "inner");
+            square.setAttribute("id", i);
+            let outer = document.querySelector('.outer');
+            outer.append(square);
+        }
+        let rand = createrandom();
+        console.log("random number" + rand);
+        setTimeout(cover, 4000);
+        for (let i = 1; i <= 20; i++) {
+            const div = document.getElementById(i);
+            div.addEventListener("click", function (event) {
+                let divid = event.target.id;
+                if (divid == rand) {
+                    let box = document.getElementById(rand);
+                    var image = document.createElement("img");
+                    image.setAttribute("id", "image");
+                    image.src = "tom.png";
+                    box.appendChild(image);
+                }
+                else{
+                    let box = document.getElementById(divid);
+                    var image = document.createElement("img");
+                    image.setAttribute("id", "image");
+                    image.src = "blast.png";
+                    box.appendChild(image);
+                }
+            });
+        }
+    }
+    let rand;
+    function createrandom() {
+        console.log("start method called");
+        rand = Math.floor(Math.random() * 21);
+        let box = document.getElementById(rand);
+        var image = document.createElement("img");
+        image.setAttribute("id", "image");
+        image.src = "tom.png";
+        box.appendChild(image);
+        return rand;
+    }
+    function cover() {
+        const div = document.getElementById(rand);
+        const img = document.getElementById("image");
+        div.removeChild(img);
+        console.log("cover method called");
+    }
+    function check(event) {
+        console.log(event.srcElement.id);
+        console.log("check method called");
+    }
+
+</script>
+
+</html>

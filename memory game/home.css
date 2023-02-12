@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+}
+.outer{
+    height: 81vh;
+    width: 101.5vh;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.inner{
+    width: 20vh;
+    height: 20vh;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.inner img{
+    height: 20vh;
+}
